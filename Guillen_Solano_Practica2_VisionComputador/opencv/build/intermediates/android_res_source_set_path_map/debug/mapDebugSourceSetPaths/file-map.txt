@@ -1,0 +1,9 @@
+org.opencv-pngs-0 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/generated/res/pngs/debug
+org.opencv-updated_navigation_xml-1 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/generated/updated_navigation_xml/debug
+org.opencv-mergeDebugResources-2 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+org.opencv-mergeDebugResources-3 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+org.opencv-debug-4 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/intermediates/merged_res/debug/mergeDebugResources
+org.opencv-debug-5 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/build/intermediates/packaged_res/debug/packageDebugResources
+org.opencv-java-6 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/java/res
+org.opencv-debug-7 /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/src/debug/res
+gradleHome-0 /Users/juanguillenalbarracin/.gradle

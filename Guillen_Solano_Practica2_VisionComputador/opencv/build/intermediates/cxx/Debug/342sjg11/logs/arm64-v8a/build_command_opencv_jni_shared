@@ -1,0 +1,4 @@
+/Users/juanguillenalbarracin/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /Users/juanguillenalbarracin/AndroidStudioProjects/Guillen_Solano_Practica2_VisionComputador/opencv/.cxx/Debug/342sjg11/arm64-v8a \
+  opencv_jni_shared
