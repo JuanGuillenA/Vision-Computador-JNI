@@ -81,3 +81,57 @@ Java_ec_edu_ups_guillen_1solano_1practica2_1visioncomputador_MainActivity_proces
     // 9. Devolver la imagen procesada hacia Android
     cvtColor(resultado, frame, COLOR_RGB2RGBA);
 }
+
+/* =========================================================================
+   PARTE 1-A: MANIPULACIÓN DE CANALES Y ALPHA BLENDING (EFECTO STRUSS)
+   INSTRUCCIONES: Para evaluar la Parte 1-A, descomente este bloque
+   y comente el bloque de la función de la Parte 1-B.
+   ========================================================================= */
+/*
+extern "C"
+JNIEXPORT void JNICALL
+Java_ec_edu_ups_guillen_1solano_1practica2_1visioncomputador_MainActivity_procesarAlphaBlending(
+        JNIEnv *env, jobject thiz, jlong direccionFrame, jlong direccionFondo, jint alphaProgress) {
+
+    // 1. Obtener las matrices desde Java
+    Mat& frame = *(Mat*)direccionFrame;
+    Mat& fondo = *(Mat*)direccionFondo;
+
+    // 2. Convertir el frame de la cámara de RGBA a RGB
+    Mat frameRGB;
+    cvtColor(frame, frameRGB, COLOR_RGBA2RGB);
+
+    // 3. Redimensionar y corregir color del fondo (BGR a RGB)
+    Mat fondoResized;
+    resize(fondo, fondoResized, frameRGB.size());
+    if (fondoResized.channels() == 4) {
+        cvtColor(fondoResized, fondoResized, COLOR_BGRA2RGB);
+    } else {
+        cvtColor(fondoResized, fondoResized, COLOR_BGR2RGB);
+    }
+
+    // =========================================================
+    // CRITERIO 2: SEPARACIÓN DE CANALES (EFECTO STRUSS)
+    // =========================================================
+    vector<Mat> canales;
+    split(frameRGB, canales);
+
+    // Ejemplo de manipulación: Anular el canal Verde
+    canales[1] = Mat::zeros(canales[1].size(), canales[1].type());
+
+    Mat frameModificado;
+    merge(canales, frameModificado);
+
+    // =========================================================
+    // CRITERIO 2: ALPHA BLENDING (TRANSICIÓN)
+    // =========================================================
+    double alpha = alphaProgress / 100.0;
+    double beta = 1.0 - alpha;
+
+    Mat blendingResult;
+    addWeighted(frameModificado, alpha, fondoResized, beta, 0.0, blendingResult);
+
+    // Devolver el resultado
+    blendingResult.copyTo(frame);
+}
+*/

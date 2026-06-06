@@ -156,3 +156,130 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         }
     }
 }
+
+/* =========================================================================
+   CÓDIGO COMPLETO DE LA PARTE 1-A: MAINACTIVITY.JAVA
+   (Efecto Struss y Alpha Blending)
+   ========================================================================= */
+/*
+package ec.edu.ups.guillen_solano_practica2_visioncomputador;
+
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.SeekBar;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+
+import java.io.IOException;
+
+public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+
+    private static final String TAG = "MainActivity";
+    private CameraBridgeViewBase vistaCamara;
+
+    // Control exclusivo de la Parte 1-A
+    private int valorTransparencia = 50;
+    private Mat imagenCatedral;
+
+    static {
+        System.loadLibrary("practica2_visioncomputador");
+    }
+
+    // Puente JNI para Alpha Blending
+    public native void procesarAlphaBlending(long direccionFrame, long direccionFondo, int alphaProgress);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (OpenCVLoader.initDebug()) {
+            Log.i(TAG, "OpenCV inicializado");
+        } else {
+            Toast.makeText(this, "Fallo al inicializar OpenCV", Toast.LENGTH_LONG).show();
+        }
+
+        vistaCamara = findViewById(R.id.vista_camara);
+        vistaCamara.setCvCameraViewListener(this);
+
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{android.Manifest.permission.CAMERA}, 101);
+        } else {
+            vistaCamara.setCameraPermissionGranted();
+            vistaCamara.enableView();
+        }
+
+        // SeekBar exclusivo para la transparencia de la Parte 1-A
+        SeekBar controlAlpha = findViewById(R.id.control_alpha);
+        if (controlAlpha != null) {
+            controlAlpha.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    valorTransparencia = progress;
+                }
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {}
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {}
+            });
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 101 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            vistaCamara.setCameraPermissionGranted();
+            vistaCamara.enableView();
+        } else {
+            Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onCameraViewStarted(int width, int height) {
+        try {
+            imagenCatedral = Utils.loadResource(this, R.drawable.catedral_cuenca);
+        } catch (IOException e) {
+            e.printStackTrace();
+            imagenCatedral = new Mat();
+        }
+    }
+
+    @Override
+    public void onCameraViewStopped() {
+        if (imagenCatedral != null) {
+            imagenCatedral.release();
+        }
+    }
+
+    @Override
+    public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
+        Mat frame = inputFrame.rgba();
+
+        if (imagenCatedral != null && !imagenCatedral.empty()) {
+            // Llamada exclusiva a la función de la Parte 1-A
+            procesarAlphaBlending(frame.getNativeObjAddr(), imagenCatedral.getNativeObjAddr(), valorTransparencia);
+        }
+
+        return frame;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (vistaCamara != null) {
+            vistaCamara.disableView();
+        }
+    }
+}
+*/
+
